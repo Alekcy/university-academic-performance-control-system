@@ -12,6 +12,17 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'urlManager'=>[
+            'class' => 'yii\web\UrlManager',
+            'baseUrl' => isset($baseUrl) ? $baseUrl : null,
+            'hostInfo' => isset($hostInfo) ? $hostInfo : null,
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '' => 'site/index',
+                '<controller:[\w-]+>' => '<controller>/index',
+            ],
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'x2aLMfnEjL9AIQeRSawugzzJIGzzXJjc',

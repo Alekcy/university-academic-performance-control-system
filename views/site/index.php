@@ -13,7 +13,7 @@ $this->title = 'My Yii Application';
     'description' => 'Управление кафедрами',
     'label' => 'Кафедры',
     'icon' => 'cog',
-    'url' => ['/config/index'],
+    'url' => ['/chair/index'],
     ]
     ];
     ?>
