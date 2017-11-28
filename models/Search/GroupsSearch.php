@@ -5,12 +5,12 @@ namespace app\models\Search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Chair as ChairModel;
+use app\models\Groups;
 
 /**
- * Chair represents the model behind the search form about `app\models\Chair`.
+ * GroupsSearch represents the model behind the search form about `app\models\Groups`.
  */
-class Chair extends ChairModel
+class GroupsSearch extends Groups
 {
     /**
      * @inheritdoc
@@ -18,8 +18,7 @@ class Chair extends ChairModel
     public function rules()
     {
         return [
-            [['ID'], 'integer'],
-            [['Chair_name'], 'safe'],
+            [['id', 'year', 'id_speciality', 'id_faculty'], 'integer'],
         ];
     }
 
@@ -41,7 +40,7 @@ class Chair extends ChairModel
      */
     public function search($params)
     {
-        $query = ChairModel::find();
+        $query = Groups::find();
 
         // add conditions that should always apply here
 
@@ -59,10 +58,11 @@ class Chair extends ChairModel
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'ID' => $this->ID,
+            'id' => $this->id,
+            'year' => $this->year,
+            'id_speciality' => $this->id_speciality,
+            'id_faculty' => $this->id_faculty,
         ]);
-
-        $query->andFilterWhere(['like', 'Chair_name', $this->Chair_name]);
 
         return $dataProvider;
     }

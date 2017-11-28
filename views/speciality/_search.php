@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Search\ChairSearch */
+/* @var $model app\models\Search\SpecialitySearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="chair-search">
+<div class="speciality-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -18,6 +18,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'name') ?>
+
+    <?= $form->field($model, 'id_faculty') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Поиск', ['class' => 'btn btn-primary']) ?>

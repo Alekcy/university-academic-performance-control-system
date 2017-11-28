@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Chair;
-use app\models\Search\ChairSearch;
+use app\models\Groups;
+use app\models\Search\GroupsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ChairController implements the CRUD actions for Chair model.
+ * GroupsController implements the CRUD actions for Groups model.
  */
-class ChairController extends Controller
+class GroupsController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class ChairController extends Controller
     }
 
     /**
-     * Lists all Chair models.
+     * Lists all Groups models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ChairSearch();
+        $searchModel = new GroupsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class ChairController extends Controller
     }
 
     /**
-     * Displays a single Chair model.
+     * Displays a single Groups model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class ChairController extends Controller
     }
 
     /**
-     * Creates a new Chair model.
+     * Creates a new Groups model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Chair();
+        $model = new Groups();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +75,7 @@ class ChairController extends Controller
     }
 
     /**
-     * Updates an existing Chair model.
+     * Updates an existing Groups model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class ChairController extends Controller
     }
 
     /**
-     * Deletes an existing Chair model.
+     * Deletes an existing Groups model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class ChairController extends Controller
     }
 
     /**
-     * Finds the Chair model based on its primary key value.
+     * Finds the Groups model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Chair the loaded model
+     * @return Groups the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Chair::findOne($id)) !== null) {
+        if (($model = Groups::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

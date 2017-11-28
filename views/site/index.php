@@ -8,13 +8,34 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 <?php
     $blocks = [
-    [
-    'title' => 'Кафедры',
-    'description' => 'Управление кафедрами',
-    'label' => 'Кафедры',
-    'icon' => 'cog',
-    'url' => ['/chair/index'],
-    ]
+        [
+            'title' => 'Кафедры',
+            'description' => 'Управление кафедрами',
+            'label' => 'Кафедры',
+            'icon' => '',
+            'url' => ['/chair/index'],
+        ],
+        [
+            'title' => 'Группы',
+            'description' => 'Управление группами',
+            'label' => 'группы',
+            'icon' => '',
+            'url' => ['/groups/index'],
+        ],
+        [
+            'title' => 'Факультеты',
+            'description' => 'Управление факультетами',
+            'label' => 'Факультеты',
+            'icon' => '',
+            'url' => ['/faculty/index'],
+        ],
+        [
+            'title' => 'Специальности',
+            'description' => 'Управление специальностями',
+            'label' => 'Специальности',
+            'icon' => '',
+            'url' => ['/speciality/index'],
+        ],
     ];
     ?>
 

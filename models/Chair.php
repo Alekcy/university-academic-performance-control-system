@@ -7,10 +7,11 @@ use Yii;
 /**
  * This is the model class for table "chair".
  *
- * @property integer $ID
- * @property string $Chair_name
+ * @property integer $id
+ * @property string $name
  *
  * @property AcademicPerformance[] $academicPerformances
+ * @property ChairToTeacher[] $chairToTeachers
  * @property Subject[] $subjects
  * @property Teacher[] $teachers
  */
@@ -30,9 +31,7 @@ class Chair extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID'], 'required'],
-            [['ID'], 'integer'],
-            [['Chair_name'], 'string', 'max' => 255],
+            [['name'], 'string', 'max' => 255],
         ];
     }
 
@@ -42,8 +41,8 @@ class Chair extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID' => 'ID',
-            'Chair_name' => 'Chair Name',
+            'id' => 'ID',
+            'name' => 'Name',
         ];
     }
 
@@ -52,7 +51,15 @@ class Chair extends \yii\db\ActiveRecord
      */
     public function getAcademicPerformances()
     {
-        return $this->hasMany(AcademicPerformance::className(), ['ID_Chair' => 'ID']);
+        return $this->hasMany(AcademicPerformance::className(), ['id_Chair' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getChairToTeachers()
+    {
+        return $this->hasMany(ChairToTeacher::className(), ['id_chair' => 'id']);
     }
 
     /**
@@ -60,7 +67,7 @@ class Chair extends \yii\db\ActiveRecord
      */
     public function getSubjects()
     {
-        return $this->hasMany(Subject::className(), ['ID_Chair' => 'ID']);
+        return $this->hasMany(Subject::className(), ['id_Chair' => 'id']);
     }
 
     /**
@@ -68,6 +75,6 @@ class Chair extends \yii\db\ActiveRecord
      */
     public function getTeachers()
     {
-        return $this->hasMany(Teacher::className(), ['ID_Chair' => 'ID']);
+        return $this->hasMany(Teacher::className(), ['id_chair' => 'id']);
     }
 }

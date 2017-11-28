@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Chair;
-use app\models\Search\ChairSearch;
+use app\models\Speciality;
+use app\models\Search\SpecialitySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ChairController implements the CRUD actions for Chair model.
+ * SpecialityController implements the CRUD actions for Speciality model.
  */
-class ChairController extends Controller
+class SpecialityController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class ChairController extends Controller
     }
 
     /**
-     * Lists all Chair models.
+     * Lists all Speciality models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ChairSearch();
+        $searchModel = new SpecialitySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class ChairController extends Controller
     }
 
     /**
-     * Displays a single Chair model.
+     * Displays a single Speciality model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class ChairController extends Controller
     }
 
     /**
-     * Creates a new Chair model.
+     * Creates a new Speciality model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Chair();
+        $model = new Speciality();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +75,7 @@ class ChairController extends Controller
     }
 
     /**
-     * Updates an existing Chair model.
+     * Updates an existing Speciality model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class ChairController extends Controller
     }
 
     /**
-     * Deletes an existing Chair model.
+     * Deletes an existing Speciality model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class ChairController extends Controller
     }
 
     /**
-     * Finds the Chair model based on its primary key value.
+     * Finds the Speciality model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Chair the loaded model
+     * @return Speciality the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Chair::findOne($id)) !== null) {
+        if (($model = Speciality::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
