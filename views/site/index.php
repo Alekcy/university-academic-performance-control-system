@@ -18,7 +18,7 @@ $this->title = 'My Yii Application';
         [
             'title' => 'Группы',
             'description' => 'Управление группами',
-            'label' => 'группы',
+            'label' => 'Группы',
             'icon' => '',
             'url' => ['/groups/index'],
         ],
@@ -36,15 +36,57 @@ $this->title = 'My Yii Application';
             'icon' => '',
             'url' => ['/speciality/index'],
         ],
+        [
+            'title' => 'Вид оценки',
+            'description' => 'Управление оценками',
+            'label' => 'Вид оценки',
+            'icon' => '',
+            'url' => ['/mark/index'],
+        ],
+        [
+            'title' => 'Вид отчетности',
+            'description' => 'Управление типом отчетности',
+            'label' => 'Вид отчетности',
+            'icon' => '',
+            'url' => ['/reporting-type/index'],
+        ],
+        [
+            'title' => 'Студенты',
+            'description' => 'Управление студентами',
+            'label' => 'Студенты',
+            'icon' => '',
+            'url' => ['/student/index'],
+        ],
+        [
+            'title' => 'Преподаватели',
+            'description' => 'Управление преподавателями',
+            'label' => 'Преподаватели',
+            'icon' => '',
+            'url' => ['/teacher/index'],
+        ],
+        [
+            'title' => 'Предметы',
+            'description' => 'Управление предметами',
+            'label' => 'Предметы',
+            'icon' => '',
+            'url' => ['/subject/index'],
+        ],
+        [
+            'title' => 'Успеваемость',
+            'description' => 'Управление успеваемостью',
+            'label' => 'Успеваемость',
+            'icon' => '',
+            'url' => ['/academic-performance/index'],
+        ],
     ];
     ?>
 
-    <?php foreach ($blocks as $number => $block): ?>
+<?php foreach ($blocks as $number => $block): ?>
     <?php if ($number % 3 == 0): ?>
     <?php if ($number != 0): ?>
-</div>
-<?php endif; ?>
-<div class="row">
+    </div>
+    <?php endif; ?>
+    <div class="row">
     <?php endif; ?>
     <div class="col-lg-4">
         <h3><?= $block['title'] ?></h3>
