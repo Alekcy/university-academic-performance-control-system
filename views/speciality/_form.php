@@ -14,7 +14,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'id_faculty')->textInput() ?>
+    <?php
+    $faculties = \app\models\Faculty::find()->all();
+    $faculties = \yii\helpers\ArrayHelper::map($faculties,'id','name');
+    ?>
+    <?= $form->field($model, 'id_faculty')->dropDownList($faculties) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
