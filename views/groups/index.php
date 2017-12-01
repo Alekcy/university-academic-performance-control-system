@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\Search\GroupsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Groups';
+$this->title = 'Группы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="groups-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Добавить Groups', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить группу', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,11 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'name',
             'year',
-            'id_speciality',
-            'id_faculty',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

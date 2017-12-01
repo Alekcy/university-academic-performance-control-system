@@ -31,8 +31,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'year',
-            'id_speciality',
-            'id_faculty',
+            [
+                'attribute' => 'faculty.name',
+                'label' => 'Факультет'
+            ],
+            [
+                'attribute' => 'speciality.name',
+                'label' => 'Специлаьность'
+            ],
+
         ],
     ]) ?>
 

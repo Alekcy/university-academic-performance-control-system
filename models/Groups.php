@@ -47,8 +47,8 @@ class Groups extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'year' => 'Year',
+            'name' => 'Название',
+            'year' => 'Год',
             'id_speciality' => 'Id Speciality',
             'id_faculty' => 'Id Faculty',
         ];
@@ -57,7 +57,7 @@ class Groups extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdFaculty()
+    public function getFaculty()
     {
         return $this->hasOne(Faculty::className(), ['id' => 'id_faculty']);
     }
@@ -65,7 +65,7 @@ class Groups extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdSpeciality()
+    public function getSpeciality()
     {
         return $this->hasOne(Speciality::className(), ['id' => 'id_speciality']);
     }
