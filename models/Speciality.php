@@ -44,7 +44,7 @@ class Speciality extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Название',
             'id_faculty' => 'Id Faculty',
         ];
     }
@@ -60,7 +60,7 @@ class Speciality extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdFaculty()
+    public function getFaculty()
     {
         return $this->hasOne(Faculty::className(), ['id' => 'id_faculty']);
     }
