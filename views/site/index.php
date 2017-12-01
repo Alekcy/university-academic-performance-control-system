@@ -23,8 +23,6 @@ $this->title = 'My Yii Application';
                 'icon' => '',
                 'url' => ['/speciality/index'],
             ],
-        ],
-        [
             [
                 'title' => 'Кафедры',
                 'description' => 'Управление кафедрами',
@@ -32,6 +30,8 @@ $this->title = 'My Yii Application';
                 'icon' => '',
                 'url' => ['/chair/index'],
             ],
+        ],
+        [
             [
                 'title' => 'Группы',
                 'description' => 'Управление группами',
@@ -39,6 +39,15 @@ $this->title = 'My Yii Application';
                 'icon' => '',
                 'url' => ['/groups/index'],
             ],
+            [
+                'title' => 'Студенты',
+                'description' => 'Управление студентами',
+                'label' => 'Студенты',
+                'icon' => '',
+                'url' => ['/student/index'],
+            ],
+        ],
+        [
             [
                 'title' => 'Вид оценки',
                 'description' => 'Управление оценками',
@@ -54,13 +63,6 @@ $this->title = 'My Yii Application';
                 'url' => ['/reporting-type/index'],
             ],
             [
-                'title' => 'Студенты',
-                'description' => 'Управление студентами',
-                'label' => 'Студенты',
-                'icon' => '',
-                'url' => ['/student/index'],
-            ],
-            [
                 'title' => 'Преподаватели',
                 'description' => 'Управление преподавателями',
                 'label' => 'Преподаватели',
@@ -74,6 +76,8 @@ $this->title = 'My Yii Application';
                 'icon' => '',
                 'url' => ['/subject/index'],
             ],
+        ],
+        [
             [
                 'title' => 'Успеваемость',
                 'description' => 'Управление успеваемостью',
