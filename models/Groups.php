@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "groups".
  *
  * @property integer $id
+ * @property string $name
  * @property integer $year
  * @property integer $id_speciality
  * @property integer $id_faculty
@@ -33,6 +34,7 @@ class Groups extends \yii\db\ActiveRecord
     {
         return [
             [['year', 'id_speciality', 'id_faculty'], 'integer'],
+            [['name'], 'string', 'max' => 20],
             [['id_faculty'], 'exist', 'skipOnError' => true, 'targetClass' => Faculty::className(), 'targetAttribute' => ['id_faculty' => 'id']],
             [['id_speciality'], 'exist', 'skipOnError' => true, 'targetClass' => Speciality::className(), 'targetAttribute' => ['id_speciality' => 'id']],
         ];
@@ -45,6 +47,7 @@ class Groups extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'name' => 'Name',
             'year' => 'Year',
             'id_speciality' => 'Id Speciality',
             'id_faculty' => 'Id Faculty',

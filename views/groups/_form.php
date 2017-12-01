@@ -12,11 +12,16 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'year')->textInput() ?>
 
-    <?= $form->field($model, 'id_speciality')->textInput() ?>
+    <?php
+    $specs = \app\models\Speciality::find()->all();
+    $specs = \yii\helpers\ArrayHelper::map($specs,'id','name');
+    ?>
+    <?= $form->field($model, 'id_speciality')->dropDownList($specs)->label('Специальность') ?>
 
-    <?= $form->field($model, 'id_faculty')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

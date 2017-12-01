@@ -72,4 +72,10 @@ class Speciality extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Student::className(), ['id_speciality' => 'id']);
     }
+
+    public function  getFacultyIdById($id)
+    {
+        $spec = $this->find()->where(['id'=>$id])->one();
+        return $spec->id_faculty;
+    }
 }
