@@ -19,6 +19,7 @@ class GroupsSearch extends Groups
     {
         return [
             [['id', 'year', 'id_speciality', 'id_faculty'], 'integer'],
+            [['name'], 'safe'],
         ];
     }
 
@@ -63,6 +64,8 @@ class GroupsSearch extends Groups
             'id_speciality' => $this->id_speciality,
             'id_faculty' => $this->id_faculty,
         ]);
+
+        $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

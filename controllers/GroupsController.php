@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Speciality;
 use Yii;
 use app\models\Groups;
 use app\models\Search\GroupsSearch;
@@ -65,7 +66,14 @@ class GroupsController extends Controller
     {
         $model = new Groups();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            print_r($_POST['Groups']['id_speciality']);
+            if(isset($_POST['Groups']['id_speciality'])) {
+                $spec = new Speciality();
+                $facultyId = $spec->getFacultyIdById($_POST['Groups']['id_speciality']);
+                $model->id_faculty = $facultyId;
+                $model->save();
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

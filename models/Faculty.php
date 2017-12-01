@@ -68,4 +68,5 @@ class Faculty extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Student::className(), ['id_faculty' => 'id']);
     }
+
 }
