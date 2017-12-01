@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
     $faculties = \app\models\Faculty::find()->all();
     $faculties = \yii\helpers\ArrayHelper::map($faculties,'id','name');
     ?>
-    <?= $form->field($model, 'id_faculty')->dropDownList($faculties) ?>
+    <?= $form->field($model, 'id_faculty')->dropDownList($faculties)->label('Факультет') ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

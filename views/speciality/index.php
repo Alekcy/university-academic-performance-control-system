@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\Search\SpecialitySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Specialities';
+$this->title = 'Специальности';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="speciality-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Добавить Speciality', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить специальность', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -26,8 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
-            'id_faculty',
-
+            [
+                'attribute' => 'faculty',
+                'value' => 'faculty.name',
+                'label' => 'Факультет'
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
