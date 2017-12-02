@@ -7,28 +7,26 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\Search\StudentSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Students';
+$this->title = 'Студенты';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="student-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Добавить Student', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить студента', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
+            
             'name',
-            'id_group',
-            'id_speciality',
-            'id_faculty',
+            'nameFaculty',
+            'nameSpeciality',
+            'nameGroup',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

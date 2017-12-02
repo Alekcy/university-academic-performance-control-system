@@ -12,6 +12,7 @@ use app\models\Student;
  */
 class StudentSearch extends Student
 {
+    public $nameFaculty,$nameSpeciality,$nameGroup;
     /**
      * @inheritdoc
      */
@@ -19,7 +20,7 @@ class StudentSearch extends Student
     {
         return [
             [['id', 'id_group', 'id_speciality', 'id_faculty'], 'integer'],
-            [['name'], 'safe'],
+            [['name','nameFaculty','nameSpeciality','nameGroup'], 'safe'],
         ];
     }
 

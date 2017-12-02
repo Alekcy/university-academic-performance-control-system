@@ -53,6 +53,9 @@ class Student extends \yii\db\ActiveRecord
             'id_group' => 'Id Group',
             'id_speciality' => 'Id Speciality',
             'id_faculty' => 'Id Faculty',
+            'nameFaculty'=>'Факультет',
+            'nameSpeciality'=>'Специальность',
+            'nameGroup'=>'Группа'
         ];
     }
 
@@ -84,6 +87,19 @@ class Student extends \yii\db\ActiveRecord
      * @return \yii\db\ActiveQuery
      */
     public function getIdGroup()
+    {
+        return $this->hasOne(Groups::className(), ['id' => 'id_group']);
+    }
+
+    public function getNameFaculty()
+    {
+        return $this->hasOne(Faculty::className(), ['id' => 'id_faculty']);
+    }
+    public function getNameSpecitality()
+    {
+        return $this->hasOne(Speciality::className(), ['id' => 'id_speciality']);
+    }
+    public function getNameGroup()
     {
         return $this->hasOne(Groups::className(), ['id' => 'id_group']);
     }
