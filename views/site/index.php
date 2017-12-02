@@ -91,14 +91,14 @@ $this->title = '';
 
 
 <?php foreach ($blocks as $number => $block): ?>
-    <div class="row">
+    <div class="row box main-panel-block">
     <?php foreach ($block as $item):?>
             <div class="col-lg-4">
                 <h3><?= $item['title'] ?></h3>
                 <p><?= $item['description'] ?></p>
-                <p><?= Html::a(Html::icon($item['icon']) . ' ' . $item['label'], $item['url'], ['class' => 'btn btn-default']) ?></p>
+                <p><?= Html::a(Html::icon($item['icon']) . ' ' . $item['label'], $item['url'], ['class' => 'btn btn-flat bg-purple']) ?></p>
             </div>
     <?php endforeach;?>
-    </div><hr>
+    </div>
     <?php endforeach; ?>
 
