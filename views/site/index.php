@@ -3,7 +3,7 @@
 /* @var $this yii\web\View */
 use yii\bootstrap\Html;
 
-$this->title = 'My Yii Application';
+$this->title = '';
 ?>
 <div class="site-index">
 <?php
