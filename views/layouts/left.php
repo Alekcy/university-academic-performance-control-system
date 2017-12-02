@@ -6,19 +6,19 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => 'Главная', 'icon' => 'file-code-o', 'url' => ['/']],
+                    ['label' => 'Главная', 'icon' => '', 'url' => ['/']],
                     ['label' => 'Основное', 'options' => ['class' => 'header']],
-                    ['label' => 'Успеваемость', 'icon' => 'file-code-o', 'url' => ['/academic-performance']],
-                    ['label' => 'Студенты', 'icon' => 'file-code-o', 'url' => ['/student']],
-                    ['label' => 'Группы', 'icon' => 'file-code-o', 'url' => ['/groups']],
+                    ['label' => 'Успеваемость', 'icon' => 'address-card', 'url' => ['/academic-performance']],
+                    ['label' => 'Студенты', 'icon' => 'graduation-cap', 'url' => ['/student']],
+                    ['label' => 'Группы', 'icon' => 'users', 'url' => ['/groups']],
                     ['label' => '', 'options' => ['class' => 'header']],
-                    ['label' => 'Факультеты', 'icon' => 'file-code-o', 'url' => ['/faculty']],
-                    ['label' => 'Специальности', 'icon' => 'file-code-o', 'url' => ['/speciality']],
+                    ['label' => 'Факультеты', 'icon' => 'university', 'url' => ['/faculty']],
+                    ['label' => 'Специальности', 'icon' => 'wrench', 'url' => ['/speciality']],
                     ['label' => '', 'options' => ['class' => 'header']],
-                    ['label' => 'Кафедры', 'icon' => 'file-code-o', 'url' => ['/chair']],
+                    ['label' => 'Кафедры', 'icon' => 'paragraph', 'url' => ['/chair']],
                     ['label' => 'Предметы', 'icon' => 'file-code-o', 'url' => ['/subject']],
-                    ['label' => 'Преподаватели', 'icon' => 'file-code-o', 'url' => ['/teacher']],
-                    ['label' => 'Оценки и отчетности', 'icon' => 'file-code-o', 'url' => ['#'], 'items' =>
+                    ['label' => 'Преподаватели', 'icon' => 'user-circle', 'url' => ['/teacher']],
+                    ['label' => 'Оценки и отчетности', 'icon' => 'eercast', 'url' => ['#'], 'items' =>
                         [
                             ['label' => 'Вид оценки', 'icon' => '', 'url' => ['/mark']],
                             ['label' => 'Вид отчетности', 'icon' => '', 'url' => ['/reporting-type']],
