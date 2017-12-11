@@ -13,12 +13,11 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'id_group')->textInput() ?>
-
-    <?= $form->field($model, 'id_speciality')->textInput() ?>
-
-    <?= $form->field($model, 'id_faculty')->textInput() ?>
+    <?php
+    $groups = \app\models\Speciality::find()->all();
+    $groups = \yii\helpers\ArrayHelper::map($groups,'id','name');
+    ?>
+    <?= $form->field($model, 'id_group')->dropDownList($groups)->label('Группа') ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

@@ -24,9 +24,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             
             'name',
-            'nameFaculty',
-            'nameSpeciality',
-            'nameGroup',
+            [
+                'attribute'=>'faculty.name',
+                'label'=>'Факультет'
+            ],
+            [
+                'attribute'=>'speciality.name',
+                'label'=>'Специальность'
+            ],
+            [
+                'attribute'=>'group.name',
+                'label'=>'Группа'
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

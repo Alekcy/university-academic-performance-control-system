@@ -91,15 +91,15 @@ class Student extends \yii\db\ActiveRecord
         return $this->hasOne(Groups::className(), ['id' => 'id_group']);
     }
 
-    public function getNameFaculty()
+    public function getFaculty()
     {
         return $this->hasOne(Faculty::className(), ['id' => 'id_faculty']);
     }
-    public function getNameSpecitality()
+    public function getSpeciality()
     {
         return $this->hasOne(Speciality::className(), ['id' => 'id_speciality']);
     }
-    public function getNameGroup()
+    public function getGroup()
     {
         return $this->hasOne(Groups::className(), ['id' => 'id_group']);
     }

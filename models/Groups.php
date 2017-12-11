@@ -77,4 +77,11 @@ class Groups extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Student::className(), ['id_group' => 'id']);
     }
+
+    public function  getSpecialityIdById($id)
+    {
+        $group = $this->find()->where(['id'=>$id])->one();
+        return $group->id_speciality;
+    }
+
 }

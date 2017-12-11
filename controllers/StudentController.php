@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Groups;
+use app\models\Speciality;
 use Yii;
 use app\models\Student;
 use app\models\Search\StudentSearch;
@@ -65,7 +67,8 @@ class StudentController extends Controller
     {
         $model = new Student();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $this->saveModel($model);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -73,7 +76,18 @@ class StudentController extends Controller
             ]);
         }
     }
-
+    private function saveModel($model)
+    {
+        if(isset($_POST['Student']['id_group'])) {
+            $group = new Groups();
+            $specialityId = $group->getSpecialityIdById($_POST['Student']['id_group']);
+            $speciality = new Speciality();
+            $facultyId = $speciality->getFacultyIdById($specialityId);
+            $model->id_speciality = $specialityId;
+            $model->id_faculty = $facultyId;
+            $model->save();
+        }
+    }
     /**
      * Updates an existing Student model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -84,7 +98,8 @@ class StudentController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $this->saveModel($model);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

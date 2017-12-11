@@ -12,8 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="student-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
         <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
@@ -30,9 +28,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'id_group',
-            'id_speciality',
-            'id_faculty',
+            [
+                'attribute'=>'faculty.name',
+                'label'=>'Факультет'
+            ],
+            [
+                'attribute'=>'speciality.name',
+                'label'=>'Специальность'
+            ],
+            [
+                'attribute'=>'group.name',
+                'label'=>'Группа'
+            ],
         ],
     ]) ?>
 
