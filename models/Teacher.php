@@ -45,7 +45,7 @@ class Teacher extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'ФИО',
             'id_chair' => 'Id Chair',
         ];
     }
@@ -69,7 +69,7 @@ class Teacher extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdChair()
+    public function getChair()
     {
         return $this->hasOne(Chair::className(), ['id' => 'id_chair']);
     }
