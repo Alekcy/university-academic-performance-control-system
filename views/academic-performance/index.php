@@ -7,12 +7,11 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\Search\AcademicPerformanceSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Academic Performances';
+$this->title = 'Успеваемость';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="academic-performance-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>

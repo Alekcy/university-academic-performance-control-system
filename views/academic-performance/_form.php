@@ -10,25 +10,40 @@ use yii\widgets\ActiveForm;
 
 <div class="academic-performance-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => [
+            'enableAjaxValidation' => true,
+            'enableClientValidation'=>true
 
-    <?= $form->field($model, 'id_Chair')->textInput() ?>
+        ]
+    ]);
+     ?>
 
-    <?= $form->field($model, 'id_Teacher')->textInput() ?>
+    <?php
+    $chairs = \yii\helpers\ArrayHelper::map(\app\models\Chair::find()->all(),'id','name');
 
-    <?= $form->field($model, 'id_Reporting_type')->textInput() ?>
+    $teachers = \yii\helpers\ArrayHelper::map(\app\models\Teacher::find()->all(),'id','name');
 
-    <?= $form->field($model, 'id_Mark')->textInput() ?>
+    $repTypes = \yii\helpers\ArrayHelper::map(\app\models\ReportingType::find()->all(),'id','name');
 
-    <?= $form->field($model, 'id_Subject')->textInput() ?>
+    $marks = \yii\helpers\ArrayHelper::map(\app\models\Mark::find()->all(),'id','name');
 
-    <?= $form->field($model, 'id_student')->textInput() ?>
+    $subjects = \yii\helpers\ArrayHelper::map(\app\models\Subject::find()->all(),'id','name');
 
-    <?= $form->field($model, 'id_group')->textInput() ?>
+    $students = \yii\helpers\ArrayHelper::map(\app\models\Student::find()->all(),'id','name');
 
-    <?= $form->field($model, 'id_faculty')->textInput() ?>
+    ?>
+    <?= $form->field($model, 'id_Chair')->dropDownList($chairs)->label('Кафедра') ?>
 
-    <?= $form->field($model, 'id_speciality')->textInput() ?>
+    <?= $form->field($model, 'id_Teacher')->dropDownList($teachers)->label('Преподаватель') ?>
+
+    <?= $form->field($model, 'id_Reporting_type')->dropDownList($repTypes)->label('Тип отчетности') ?>
+
+    <?= $form->field($model, 'id_Mark')->dropDownList($marks)->label('Оценка') ?>
+
+    <?= $form->field($model, 'id_Subject')->dropDownList($subjects)->label('Предмет') ?>
+
+    <?= $form->field($model, 'id_student')->dropDownList($students)->label('Студенты') ?>
 
     <?= $form->field($model, 'Date')->textInput() ?>
 

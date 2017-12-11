@@ -76,8 +76,8 @@ class AcademicPerformance extends \yii\db\ActiveRecord
             'id_group' => 'Id Group',
             'id_faculty' => 'Id Faculty',
             'id_speciality' => 'Id Speciality',
-            'Date' => 'Date',
-            'Hours_count' => 'Hours Count',
+            'Date' => 'Дата',
+            'Hours_count' => 'Часы',
         ];
     }
 
