@@ -2,6 +2,10 @@
 
 namespace app\controllers;
 
+use app\models\Groups;
+use app\models\Speciality;
+use app\models\Student;
+use Codeception\Lib\Generator\Group;
 use Yii;
 use app\models\AcademicPerformance;
 use app\models\Search\AcademicPerformanceSearch;
@@ -65,7 +69,8 @@ class AcademicPerformanceController extends Controller
     {
         $model = new AcademicPerformance();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $this->saveModel($model);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -84,7 +89,8 @@ class AcademicPerformanceController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $this->saveModel($model);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -93,6 +99,21 @@ class AcademicPerformanceController extends Controller
         }
     }
 
+    private function saveModel($model)
+    {
+        if(isset($_POST['AcademicPerformance']['id_student'])) {
+            $student = new Student();
+            $groupId = $student->getGroupIdById($_POST['AcademicPerformance']['id_student']);
+            $group = new Groups();
+            $specialityId = $group->getSpecialityIdById($groupId);
+            $speciality = new Speciality();
+            $facultyId = $speciality->getFacultyIdById($specialityId);
+            $model->id_speciality = $specialityId;
+            $model->id_faculty = $facultyId;
+            $model->id_group = $groupId;
+            $model->save();
+        }
+    }
     /**
      * Deletes an existing AcademicPerformance model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

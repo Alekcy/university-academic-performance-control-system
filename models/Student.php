@@ -103,4 +103,10 @@ class Student extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Groups::className(), ['id' => 'id_group']);
     }
+
+    public function  getGroupIdById($id)
+    {
+        $student = $this->find()->where(['id'=>$id])->one();
+        return $student->id_group;
+    }
 }
