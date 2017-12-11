@@ -18,7 +18,7 @@ class AcademicPerformanceSearch extends AcademicPerformance
     public function rules()
     {
         return [
-            [['id', 'id_Chair', 'id_Teacher', 'id_Reporting_type', 'id_Mark', 'id_Subject', 'id_student', 'Hours_count'], 'integer'],
+            [['id', 'id_Chair', 'id_Teacher', 'id_Reporting_type', 'id_Mark', 'id_Subject', 'id_student', 'id_group', 'id_faculty', 'id_speciality', 'Hours_count'], 'integer'],
             [['Date'], 'safe'],
         ];
     }
@@ -66,6 +66,9 @@ class AcademicPerformanceSearch extends AcademicPerformance
             'id_Mark' => $this->id_Mark,
             'id_Subject' => $this->id_Subject,
             'id_student' => $this->id_student,
+            'id_group' => $this->id_group,
+            'id_faculty' => $this->id_faculty,
+            'id_speciality' => $this->id_speciality,
             'Date' => $this->Date,
             'Hours_count' => $this->Hours_count,
         ]);

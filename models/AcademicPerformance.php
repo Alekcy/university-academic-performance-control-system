@@ -14,6 +14,9 @@ use Yii;
  * @property integer $id_Mark
  * @property integer $id_Subject
  * @property integer $id_student
+ * @property integer $id_group
+ * @property integer $id_faculty
+ * @property integer $id_speciality
  * @property string $Date
  * @property integer $Hours_count
  *
@@ -23,6 +26,9 @@ use Yii;
  * @property Mark $idMark
  * @property Subject $idSubject
  * @property Student $idStudent
+ * @property Groups $idGroup
+ * @property Faculty $idFaculty
+ * @property Speciality $idSpeciality
  */
 class AcademicPerformance extends \yii\db\ActiveRecord
 {
@@ -40,7 +46,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_Chair', 'id_Teacher', 'id_Reporting_type', 'id_Mark', 'id_Subject', 'id_student', 'Hours_count'], 'integer'],
+            [['id_Chair', 'id_Teacher', 'id_Reporting_type', 'id_Mark', 'id_Subject', 'id_student', 'id_group', 'id_faculty', 'id_speciality', 'Hours_count'], 'integer'],
             [['Date'], 'safe'],
             [['id_Chair'], 'exist', 'skipOnError' => true, 'targetClass' => Chair::className(), 'targetAttribute' => ['id_Chair' => 'id']],
             [['id_Teacher'], 'exist', 'skipOnError' => true, 'targetClass' => Teacher::className(), 'targetAttribute' => ['id_Teacher' => 'id']],
@@ -48,6 +54,9 @@ class AcademicPerformance extends \yii\db\ActiveRecord
             [['id_Mark'], 'exist', 'skipOnError' => true, 'targetClass' => Mark::className(), 'targetAttribute' => ['id_Mark' => 'id']],
             [['id_Subject'], 'exist', 'skipOnError' => true, 'targetClass' => Subject::className(), 'targetAttribute' => ['id_Subject' => 'id']],
             [['id_student'], 'exist', 'skipOnError' => true, 'targetClass' => Student::className(), 'targetAttribute' => ['id_student' => 'id']],
+            [['id_group'], 'exist', 'skipOnError' => true, 'targetClass' => Groups::className(), 'targetAttribute' => ['id_group' => 'id']],
+            [['id_faculty'], 'exist', 'skipOnError' => true, 'targetClass' => Faculty::className(), 'targetAttribute' => ['id_faculty' => 'id']],
+            [['id_speciality'], 'exist', 'skipOnError' => true, 'targetClass' => Speciality::className(), 'targetAttribute' => ['id_speciality' => 'id']],
         ];
     }
 
@@ -64,6 +73,9 @@ class AcademicPerformance extends \yii\db\ActiveRecord
             'id_Mark' => 'Id  Mark',
             'id_Subject' => 'Id  Subject',
             'id_student' => 'Id Student',
+            'id_group' => 'Id Group',
+            'id_faculty' => 'Id Faculty',
+            'id_speciality' => 'Id Speciality',
             'Date' => 'Date',
             'Hours_count' => 'Hours Count',
         ];
@@ -115,5 +127,29 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     public function getIdStudent()
     {
         return $this->hasOne(Student::className(), ['id' => 'id_student']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdGroup()
+    {
+        return $this->hasOne(Groups::className(), ['id' => 'id_group']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdFaculty()
+    {
+        return $this->hasOne(Faculty::className(), ['id' => 'id_faculty']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdSpeciality()
+    {
+        return $this->hasOne(Speciality::className(), ['id' => 'id_speciality']);
     }
 }

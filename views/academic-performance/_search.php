@@ -29,6 +29,12 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'id_student') ?>
 
+    <?php // echo $form->field($model, 'id_group') ?>
+
+    <?php // echo $form->field($model, 'id_faculty') ?>
+
+    <?php // echo $form->field($model, 'id_speciality') ?>
+
     <?php // echo $form->field($model, 'Date') ?>
 
     <?php // echo $form->field($model, 'Hours_count') ?>

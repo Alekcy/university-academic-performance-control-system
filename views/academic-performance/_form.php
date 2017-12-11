@@ -24,6 +24,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_student')->textInput() ?>
 
+    <?= $form->field($model, 'id_group')->textInput() ?>
+
+    <?= $form->field($model, 'id_faculty')->textInput() ?>
+
+    <?= $form->field($model, 'id_speciality')->textInput() ?>
+
     <?= $form->field($model, 'Date')->textInput() ?>
 
     <?= $form->field($model, 'Hours_count')->textInput() ?>
