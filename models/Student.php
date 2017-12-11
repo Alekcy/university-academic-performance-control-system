@@ -49,7 +49,7 @@ class Student extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'ФИО',
             'id_group' => 'Id Group',
             'id_speciality' => 'Id Speciality',
             'id_faculty' => 'Id Faculty',

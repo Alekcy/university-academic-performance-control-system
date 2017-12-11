@@ -7,12 +7,11 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\Search\ChairSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Chairs';
+$this->title = 'Кафедры';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="chair-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
@@ -24,7 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'name',
 
             ['class' => 'yii\grid\ActionColumn'],
