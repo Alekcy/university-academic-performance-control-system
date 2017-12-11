@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Groups', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="groups-create">
-        
+
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

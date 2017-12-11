@@ -7,12 +7,11 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\Search\MarkSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Marks';
+$this->title = 'Тип оценки';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mark-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
@@ -24,7 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'name',
 
             ['class' => 'yii\grid\ActionColumn'],

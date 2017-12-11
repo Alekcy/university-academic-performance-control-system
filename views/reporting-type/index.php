@@ -7,16 +7,15 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\Search\ReportingTypeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Reporting Types';
+$this->title = 'Типы отчетности';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reporting-type-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Добавить Reporting Type', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить тип отчетности', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,7 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'name',
 
             ['class' => 'yii\grid\ActionColumn'],
