@@ -44,7 +44,7 @@ class Subject extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Название',
             'id_Chair' => 'Id  Chair',
         ];
     }
@@ -60,7 +60,7 @@ class Subject extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdChair()
+    public function getChair()
     {
         return $this->hasOne(Chair::className(), ['id' => 'id_Chair']);
     }
