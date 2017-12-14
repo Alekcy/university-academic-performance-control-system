@@ -119,3 +119,13 @@ a.desc:after {
 .academic-performance-form{
     width: 50%;
 }
+#PrintThis{
+    visibility: hidden;
+}
+@media print {
+    .noprint {display:none !important;}
+    a:link:after, a:visited:after {
+        display: none;
+        content: "";
+    }
+}
