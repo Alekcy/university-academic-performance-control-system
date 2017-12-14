@@ -6,6 +6,21 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model app\models\Search\AcademicPerformanceSearch */
 /* @var $form yii\widgets\ActiveForm */
+
+    $chairs = \yii\helpers\ArrayHelper::map(\app\models\Chair::find()->all(),'id','name');
+    array_unshift($chairs,'d');
+
+    $teachers = \yii\helpers\ArrayHelper::map(\app\models\Teacher::find()->all(),'id','name');
+
+    $repTypes = \yii\helpers\ArrayHelper::map(\app\models\ReportingType::find()->all(),'id','name');
+
+    $marks = \yii\helpers\ArrayHelper::map(\app\models\Mark::find()->all(),'id','name');
+
+    $subjects = \yii\helpers\ArrayHelper::map(\app\models\Subject::find()->all(),'id','name');
+
+    $students = \yii\helpers\ArrayHelper::map(\app\models\Student::find()->all(),'id','name');
+
+
 ?>
 
 <div class="academic-performance-search">
@@ -15,29 +30,33 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <?= $form->field($model, 'id_Chair')->dropDownList($chairs, ['prompt'=>'- Выберите -'])->label('Кафедра') ?>
 
-    <?= $form->field($model, 'id_Chair') ?>
+                <?= $form->field($model, 'id_Teacher')->dropDownList($teachers, ['prompt'=>'- Выберите -'])->label('Преподаватель') ?>
 
-    <?= $form->field($model, 'id_Teacher') ?>
+                <?= $form->field($model, 'id_Reporting_type')->dropDownList($repTypes, ['prompt'=>'- Выберите -'])->label('Тип отчетности') ?>
+            </div>
+            <div class="col-md-4">
+                <?= $form->field($model, 'id_Mark')->dropDownList($marks, ['prompt'=>'- Выберите -'])->label('Оценка') ?>
 
-    <?= $form->field($model, 'id_Reporting_type') ?>
+                <?= $form->field($model, 'id_Subject')->dropDownList($subjects, ['prompt'=>'- Выберите -'])->label('Предмет') ?>
 
-    <?= $form->field($model, 'id_Mark') ?>
+                <?= $form->field($model, 'id_student')->dropDownList($students, ['prompt'=>'- Выберите -'])->label('Студенты') ?>
 
-    <?php // echo $form->field($model, 'id_Subject') ?>
+            </div>
+            <div class="col-md-4">
+                <?= $form->field($model, 'id_group')->dropDownList($students, ['prompt'=>'- Выберите -'])->label('Группа') ?>
 
-    <?php // echo $form->field($model, 'id_student') ?>
+                <?= $form->field($model, 'id_faculty')->dropDownList($students, ['prompt'=>'- Выберите -'])->label('Факультет') ?>
 
-    <?php // echo $form->field($model, 'id_group') ?>
+                <?= $form->field($model, 'id_speciality')->dropDownList($students, ['prompt'=>'- Выберите -'])->label('Специальность') ?>
 
-    <?php // echo $form->field($model, 'id_faculty') ?>
-
-    <?php // echo $form->field($model, 'id_speciality') ?>
-
-    <?php // echo $form->field($model, 'Date') ?>
-
-    <?php // echo $form->field($model, 'Hours_count') ?>
+            </div>
+        </div>
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton('Поиск', ['class' => 'btn btn-primary']) ?>

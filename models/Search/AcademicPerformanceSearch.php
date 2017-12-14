@@ -12,6 +12,8 @@ use app\models\AcademicPerformance;
  */
 class AcademicPerformanceSearch extends AcademicPerformance
 {
+
+    public $chairName;
     /**
      * @inheritdoc
      */
@@ -19,7 +21,7 @@ class AcademicPerformanceSearch extends AcademicPerformance
     {
         return [
             [['id', 'id_Chair', 'id_Teacher', 'id_Reporting_type', 'id_Mark', 'id_Subject', 'id_student', 'id_group', 'id_faculty', 'id_speciality', 'Hours_count'], 'integer'],
-            [['Date'], 'safe'],
+            [['Date','chairName'], 'safe'],
         ];
     }
 
@@ -49,6 +51,7 @@ class AcademicPerformanceSearch extends AcademicPerformance
             'query' => $query,
         ]);
 
+
         $this->load($params);
 
         if (!$this->validate()) {
@@ -57,6 +60,11 @@ class AcademicPerformanceSearch extends AcademicPerformance
             return $dataProvider;
         }
 
+        $query->joinWith('chair');
+        $dataProvider->sort->attributes['chairName'] = [
+            'asc' => ['chair.name' => SORT_ASC],
+            'desc' => ['chair.name' => SORT_DESC],
+        ];
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
@@ -72,6 +80,8 @@ class AcademicPerformanceSearch extends AcademicPerformance
             'Date' => $this->Date,
             'Hours_count' => $this->Hours_count,
         ]);
+
+        $query->andFilterWhere(['like', 'chair.name', $this->chairName]);
 
         return $dataProvider;
     }

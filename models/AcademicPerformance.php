@@ -78,13 +78,14 @@ class AcademicPerformance extends \yii\db\ActiveRecord
             'id_speciality' => 'Id Speciality',
             'Date' => 'Дата',
             'Hours_count' => 'Часы',
+            'chairName' => 'Кафедра'
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdChair()
+    public function getChair()
     {
         return $this->hasOne(Chair::className(), ['id' => 'id_Chair']);
     }
@@ -151,5 +152,10 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     public function getIdSpeciality()
     {
         return $this->hasOne(Speciality::className(), ['id' => 'id_speciality']);
+    }
+
+    public function getChairName()
+    {
+        return $this->chair->name;
     }
 }
