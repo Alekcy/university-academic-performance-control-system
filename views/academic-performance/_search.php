@@ -8,7 +8,6 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 
     $chairs = \yii\helpers\ArrayHelper::map(\app\models\Chair::find()->all(),'id','name');
-    array_unshift($chairs,'d');
 
     $teachers = \yii\helpers\ArrayHelper::map(\app\models\Teacher::find()->all(),'id','name');
 
@@ -20,6 +19,11 @@ use yii\widgets\ActiveForm;
 
     $students = \yii\helpers\ArrayHelper::map(\app\models\Student::find()->all(),'id','name');
 
+    $groups = \yii\helpers\ArrayHelper::map(\app\models\Groups::find()->all(),'id','name');
+
+    $faculties = \yii\helpers\ArrayHelper::map(\app\models\Faculty::find()->all(),'id','name');
+
+    $specialities = \yii\helpers\ArrayHelper::map(\app\models\Speciality::find()->all(),'id','name');
 
 ?>
 
@@ -48,11 +52,11 @@ use yii\widgets\ActiveForm;
 
             </div>
             <div class="col-md-4">
-                <?= $form->field($model, 'id_group')->dropDownList($students, ['prompt'=>'- Выберите -'])->label('Группа') ?>
+                <?= $form->field($model, 'id_group')->dropDownList($groups, ['prompt'=>'- Выберите -'])->label('Группа') ?>
 
-                <?= $form->field($model, 'id_faculty')->dropDownList($students, ['prompt'=>'- Выберите -'])->label('Факультет') ?>
+                <?= $form->field($model, 'id_faculty')->dropDownList($faculties, ['prompt'=>'- Выберите -'])->label('Факультет') ?>
 
-                <?= $form->field($model, 'id_speciality')->dropDownList($students, ['prompt'=>'- Выберите -'])->label('Специальность') ?>
+                <?= $form->field($model, 'id_speciality')->dropDownList($specialities, ['prompt'=>'- Выберите -'])->label('Специальность') ?>
 
             </div>
         </div>
