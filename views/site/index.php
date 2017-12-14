@@ -30,8 +30,20 @@ $this->title = '';
                 'icon' => '',
                 'url' => ['/chair/index'],
             ],
-        ],
-        [
+            [
+                'title' => 'Преподаватели',
+                'description' => 'Управление преподавателями',
+                'label' => 'Преподаватели',
+                'icon' => '',
+                'url' => ['/teacher/index'],
+            ],
+            [
+                'title' => 'Предметы',
+                'description' => 'Управление предметами',
+                'label' => 'Предметы',
+                'icon' => '',
+                'url' => ['/subject/index'],
+            ],
             [
                 'title' => 'Группы',
                 'description' => 'Управление группами',
@@ -61,20 +73,6 @@ $this->title = '';
                 'label' => 'Вид отчетности',
                 'icon' => '',
                 'url' => ['/reporting-type/index'],
-            ],
-            [
-                'title' => 'Преподаватели',
-                'description' => 'Управление преподавателями',
-                'label' => 'Преподаватели',
-                'icon' => '',
-                'url' => ['/teacher/index'],
-            ],
-            [
-                'title' => 'Предметы',
-                'description' => 'Управление предметами',
-                'label' => 'Предметы',
-                'icon' => '',
-                'url' => ['/subject/index'],
             ],
         ],
         [
