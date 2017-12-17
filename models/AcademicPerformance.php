@@ -93,7 +93,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdTeacher()
+    public function getTeacher()
     {
         return $this->hasOne(Teacher::className(), ['id' => 'id_Teacher']);
     }
@@ -101,7 +101,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdReportingType()
+    public function getReportingType()
     {
         return $this->hasOne(ReportingType::className(), ['id' => 'id_Reporting_type']);
     }
@@ -109,7 +109,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdMark()
+    public function getMark()
     {
         return $this->hasOne(Mark::className(), ['id' => 'id_Mark']);
     }
@@ -117,7 +117,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdSubject()
+    public function getSubject()
     {
         return $this->hasOne(Subject::className(), ['id' => 'id_Subject']);
     }
@@ -125,7 +125,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdStudent()
+    public function getStudent()
     {
         return $this->hasOne(Student::className(), ['id' => 'id_student']);
     }
@@ -133,7 +133,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdGroup()
+    public function getGroup()
     {
         return $this->hasOne(Groups::className(), ['id' => 'id_group']);
     }
@@ -141,7 +141,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdFaculty()
+    public function getFaculty()
     {
         return $this->hasOne(Faculty::className(), ['id' => 'id_faculty']);
     }
@@ -149,7 +149,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdSpeciality()
+    public function getSpeciality()
     {
         return $this->hasOne(Speciality::className(), ['id' => 'id_speciality']);
     }

@@ -26,18 +26,38 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'id_Chair',
-            'id_Teacher',
-            'id_Reporting_type',
-            'id_Mark',
-            'id_Subject',
-            'id_student',
-            'id_group',
-            'id_faculty',
-            'id_speciality',
+            'chairName',
+            [
+                'attribute'=>'teacher.name',
+                'label'=>'Преподаватель'
+            ],
+            [
+                'attribute'=>'reportingType.name',
+                'label'=>'Тип отчетности'
+            ],
+            [
+                'attribute'=>'mark.name'
+            ],
+            [
+                'attribute'=>'subject.name',
+                'label'=>'Предмет'
+            ],
+            [
+                'attribute'=>'group.name',
+                'label'=>'Группа'
+            ],
+            [
+                'attribute'=>'faculty.name',
+                'label'=>'Факультет'
+            ],
+            [
+                'attribute'=>'speciality.name',
+                'label'=>'Специальность'
+            ],
+
             'Date',
             'Hours_count',
+
         ],
     ]) ?>
 

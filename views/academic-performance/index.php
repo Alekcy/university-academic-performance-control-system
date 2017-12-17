@@ -42,22 +42,40 @@ $this->params['breadcrumbs'][] = $this->title;
     ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'chairName',
-            'id_Chair',
-            'id_Teacher',
-            'id_Reporting_type',
-            'id_Mark',
-            // 'id_Subject',
-            // 'id_student',
-            // 'id_group',
-            // 'id_faculty',
-            // 'id_speciality',
-            // 'Date',
-            // 'Hours_count',
+            [
+                'attribute'=>'teacher.name',
+                'label'=>'Преподаватель'
+            ],
+            [
+                'attribute'=>'reportingType.name',
+                'label'=>'Тип отчетности'
+            ],
+            [
+                'attribute'=>'mark.name'
+            ],
+            [
+                'attribute'=>'subject.name',
+                'label'=>'Предмет'
+            ],
+            [
+                'attribute'=>'group.name',
+                'label'=>'Группа'
+            ],
+            [
+                'attribute'=>'faculty.name',
+                'label'=>'Факультет'
+            ],
+            [
+                'attribute'=>'speciality.name',
+                'label'=>'Специальность'
+            ],
+
+            'Date',
+            'Hours_count',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
@@ -69,17 +87,36 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => 'yii\grid\SerialColumn'],
 
                 'chairName',
-                'id_Chair',
-                'id_Teacher',
-                'id_Reporting_type',
-                'id_Mark',
-                // 'id_Subject',
-                // 'id_student',
-                // 'id_group',
-                // 'id_faculty',
-                // 'id_speciality',
-                // 'Date',
-                // 'Hours_count',
+                [
+                    'attribute'=>'teacher.name',
+                    'label'=>'Преподаватель'
+                ],
+                [
+                    'attribute'=>'reportingType.name',
+                    'label'=>'Тип отчетности'
+                ],
+                [
+                    'attribute'=>'mark.name'
+                ],
+                [
+                    'attribute'=>'subject.name',
+                    'label'=>'Предмет'
+                ],
+                [
+                    'attribute'=>'group.name',
+                    'label'=>'Группа'
+                ],
+                [
+                    'attribute'=>'faculty.name',
+                    'label'=>'Факультет'
+                ],
+                [
+                    'attribute'=>'speciality.name',
+                    'label'=>'Специальность'
+                ],
+
+                'Date',
+                'Hours_count',
             ],
         ]); ?>
     </div>
