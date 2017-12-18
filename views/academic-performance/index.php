@@ -51,6 +51,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'=>'Преподаватель'
             ],
             [
+                'attribute'=>'student.name',
+                'label'=>'Студент'
+            ],
+            [
                 'attribute'=>'reportingType.name',
                 'label'=>'Тип отчетности'
             ],
@@ -90,6 +94,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'attribute'=>'teacher.name',
                     'label'=>'Преподаватель'
+                ],
+                [
+                    'attribute'=>'student.name',
+                    'label'=>'Студент'
                 ],
                 [
                     'attribute'=>'reportingType.name',
