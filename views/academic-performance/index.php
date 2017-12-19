@@ -44,11 +44,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            [
-                'attribute'=>'teacher.name',
-                'label'=>'Преподаватель'
-            ],
             [
                 'attribute'=>'student.name',
                 'label'=>'Студент'
@@ -65,6 +60,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'=>'Предмет'
             ],
             [
+                'attribute'=>'teacher.name',
+                'label'=>'Преподаватель'
+            ],
+            [
                 'attribute'=>'group.name',
                 'label'=>'Группа'
             ],
@@ -76,6 +75,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'speciality.name',
                 'label'=>'Специальность'
             ],
+            [
+                'attribute'=>'academicYear.name',
+                'label'=>'Год'
+            ],
+
 
             'Date',
             'Hours_count',

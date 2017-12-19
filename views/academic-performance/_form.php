@@ -31,6 +31,8 @@ use yii\widgets\ActiveForm;
 
     $students = \yii\helpers\ArrayHelper::map(\app\models\Student::find()->all(),'id','name');
 
+    $years = \yii\helpers\ArrayHelper::map(\app\models\AcademicYear::find()->all(),'id','name');
+
     ?>
 
     <?= $form->field($model, 'id_Teacher')->dropDownList($teachers)->label('Преподаватель') ?>
@@ -42,6 +44,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'id_Subject')->dropDownList($subjects)->label('Предмет') ?>
 
     <?= $form->field($model, 'id_student')->dropDownList($students)->label('Студенты') ?>
+
+    <?= $form->field($model, 'id_academic_year')->dropDownList($years)->label('Год') ?>
 
     <?= $form->field($model, 'Date')->textInput() ?>
 

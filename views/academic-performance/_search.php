@@ -52,11 +52,11 @@ use yii\widgets\ActiveForm;
 
             </div>
             <div class="col-md-4">
-                <?= $form->field($model, 'id_group')->dropDownList($groups, ['prompt'=>'- Выберите -'])->label('Группа') ?>
+                <?= $form->field($model, 'idGroup')->dropDownList($groups, ['prompt'=>'- Выберите -'])->label('Группа') ?>
 
                 <?= $form->field($model, 'id_faculty')->dropDownList($faculties, ['prompt'=>'- Выберите -'])->label('Факультет') ?>
 
-                <?= $form->field($model, 'id_speciality')->dropDownList($specialities, ['prompt'=>'- Выберите -'])->label('Специальность') ?>
+                <?= $form->field($model, 'idSpeciality')->dropDownList($specialities, ['prompt'=>'- Выберите -'])->label('Специальность') ?>
 
             </div>
         </div>
