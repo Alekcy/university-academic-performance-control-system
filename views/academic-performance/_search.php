@@ -37,7 +37,6 @@ use yii\widgets\ActiveForm;
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
-                <?= $form->field($model, 'id_Chair')->dropDownList($chairs, ['prompt'=>'- Выберите -'])->label('Кафедра') ?>
 
                 <?= $form->field($model, 'id_Teacher')->dropDownList($teachers, ['prompt'=>'- Выберите -'])->label('Преподаватель') ?>
 

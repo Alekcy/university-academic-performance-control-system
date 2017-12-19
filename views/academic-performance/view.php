@@ -26,7 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'chairName',
             [
                 'attribute'=>'teacher.name',
                 'label'=>'Преподаватель'

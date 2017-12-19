@@ -20,7 +20,6 @@ use yii\widgets\ActiveForm;
      ?>
 
     <?php
-    $chairs = \yii\helpers\ArrayHelper::map(\app\models\Chair::find()->all(),'id','name');
 
     $teachers = \yii\helpers\ArrayHelper::map(\app\models\Teacher::find()->all(),'id','name');
 
@@ -33,7 +32,6 @@ use yii\widgets\ActiveForm;
     $students = \yii\helpers\ArrayHelper::map(\app\models\Student::find()->all(),'id','name');
 
     ?>
-    <?= $form->field($model, 'id_Chair')->dropDownList($chairs)->label('Кафедра') ?>
 
     <?= $form->field($model, 'id_Teacher')->dropDownList($teachers)->label('Преподаватель') ?>
 

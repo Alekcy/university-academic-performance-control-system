@@ -46,9 +46,8 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_Chair', 'id_Teacher', 'id_Reporting_type', 'id_Mark', 'id_Subject', 'id_student', 'id_group', 'id_faculty', 'id_speciality', 'Hours_count'], 'integer'],
+            [[ 'id_Teacher', 'id_Reporting_type', 'id_Mark', 'id_Subject', 'id_student', 'id_group', 'id_faculty', 'id_speciality', 'Hours_count'], 'integer'],
             [['Date'], 'safe'],
-            [['id_Chair'], 'exist', 'skipOnError' => true, 'targetClass' => Chair::className(), 'targetAttribute' => ['id_Chair' => 'id']],
             [['id_Teacher'], 'exist', 'skipOnError' => true, 'targetClass' => Teacher::className(), 'targetAttribute' => ['id_Teacher' => 'id']],
             [['id_Reporting_type'], 'exist', 'skipOnError' => true, 'targetClass' => ReportingType::className(), 'targetAttribute' => ['id_Reporting_type' => 'id']],
             [['id_Mark'], 'exist', 'skipOnError' => true, 'targetClass' => Mark::className(), 'targetAttribute' => ['id_Mark' => 'id']],
@@ -67,7 +66,6 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_Chair' => 'Id  Chair',
             'id_Teacher' => 'Id  Teacher',
             'id_Reporting_type' => 'Id  Reporting Type',
             'id_Mark' => 'Id  Mark',
@@ -80,14 +78,6 @@ class AcademicPerformance extends \yii\db\ActiveRecord
             'Hours_count' => 'Часы',
             'chairName' => 'Кафедра'
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getChair()
-    {
-        return $this->hasOne(Chair::className(), ['id' => 'id_Chair']);
     }
 
     /**
@@ -154,8 +144,5 @@ class AcademicPerformance extends \yii\db\ActiveRecord
         return $this->hasOne(Speciality::className(), ['id' => 'id_speciality']);
     }
 
-    public function getChairName()
-    {
-        return $this->chair->name;
-    }
+
 }

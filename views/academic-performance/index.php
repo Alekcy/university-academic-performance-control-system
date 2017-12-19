@@ -45,7 +45,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'chairName',
             [
                 'attribute'=>'teacher.name',
                 'label'=>'Преподаватель'
@@ -90,7 +89,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'chairName',
                 [
                     'attribute'=>'teacher.name',
                     'label'=>'Преподаватель'
