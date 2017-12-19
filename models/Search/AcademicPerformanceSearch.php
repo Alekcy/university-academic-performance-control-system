@@ -13,6 +13,7 @@ use app\models\AcademicPerformance;
 class AcademicPerformanceSearch extends AcademicPerformance
 {
 
+    public $budget;
     /**
      * @inheritdoc
      */
@@ -20,7 +21,7 @@ class AcademicPerformanceSearch extends AcademicPerformance
     {
         return [
             [['id', 'id_Teacher', 'id_Reporting_type', 'id_Mark', 'id_Subject', 'id_student', 'id_group', 'id_faculty', 'id_speciality', 'Hours_count'], 'integer'],
-            [['Date'], 'safe'],
+            [['Date','budget'], 'safe'],
         ];
     }
 
@@ -58,7 +59,11 @@ class AcademicPerformanceSearch extends AcademicPerformance
             // $query->where('0=1');
             return $dataProvider;
         }
-
+        $query->joinWith('student');
+        $dataProvider->sort->attributes['budget'] = [
+            'asc' => ['student.budget' => SORT_ASC],
+            'desc' => ['student.budget' => SORT_DESC],
+        ];
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
@@ -74,7 +79,7 @@ class AcademicPerformanceSearch extends AcademicPerformance
             'Hours_count' => $this->Hours_count,
         ]);
 
-
+        $query->andFilterWhere(['like', 'student.budget', $this->budget]);
         return $dataProvider;
     }
 }

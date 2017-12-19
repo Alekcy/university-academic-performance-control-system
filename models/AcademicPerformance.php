@@ -47,7 +47,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     {
         return [
             [[ 'id_Teacher', 'id_Reporting_type', 'id_Mark', 'id_Subject', 'id_student', 'id_group', 'id_faculty', 'id_speciality', 'Hours_count'], 'integer'],
-            [['Date'], 'safe'],
+            [['Date','Budget'], 'safe'],
             [['id_Teacher'], 'exist', 'skipOnError' => true, 'targetClass' => Teacher::className(), 'targetAttribute' => ['id_Teacher' => 'id']],
             [['id_Reporting_type'], 'exist', 'skipOnError' => true, 'targetClass' => ReportingType::className(), 'targetAttribute' => ['id_Reporting_type' => 'id']],
             [['id_Mark'], 'exist', 'skipOnError' => true, 'targetClass' => Mark::className(), 'targetAttribute' => ['id_Mark' => 'id']],
@@ -75,8 +75,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
             'id_faculty' => 'Id Faculty',
             'id_speciality' => 'Id Speciality',
             'Date' => 'Дата',
-            'Hours_count' => 'Часы',
-            'chairName' => 'Кафедра'
+            'Hours_count' => 'Часы'
         ];
     }
 
@@ -142,6 +141,11 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     public function getSpeciality()
     {
         return $this->hasOne(Speciality::className(), ['id' => 'id_speciality']);
+    }
+
+    public function getBudget()
+    {
+        return $this->student->budget;
     }
 
 
