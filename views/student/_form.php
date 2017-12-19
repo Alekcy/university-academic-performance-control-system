@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
     <?php
-    $groups = \app\models\Speciality::find()->all();
+    $groups = \app\models\Groups::find()->all();
     $groups = \yii\helpers\ArrayHelper::map($groups,'id','name');
     print_r($groups);
     ?>
