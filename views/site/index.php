@@ -83,6 +83,13 @@ $this->title = '';
                 'icon' => '',
                 'url' => ['/academic-performance/index'],
             ],
+            [
+                'title' => 'Академический год',
+                'description' => 'Управление',
+                'label' => 'Академический год',
+                'icon' => '',
+                'url' => ['/academic-year/index'],
+            ],
         ],
     ];
     ?>
