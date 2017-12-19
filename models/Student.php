@@ -34,7 +34,7 @@ class Student extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_group', 'id_speciality', 'id_faculty'], 'integer'],
+            [['id_group', 'id_speciality', 'id_faculty','budget'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['id_faculty'], 'exist', 'skipOnError' => true, 'targetClass' => Faculty::className(), 'targetAttribute' => ['id_faculty' => 'id']],
             [['id_speciality'], 'exist', 'skipOnError' => true, 'targetClass' => Speciality::className(), 'targetAttribute' => ['id_speciality' => 'id']],
@@ -55,7 +55,8 @@ class Student extends \yii\db\ActiveRecord
             'id_faculty' => 'Id Faculty',
             'nameFaculty'=>'Факультет',
             'nameSpeciality'=>'Специальность',
-            'nameGroup'=>'Группа'
+            'nameGroup'=>'Группа',
+            'budget'=>'Бюджет/Не бюджет'
         ];
     }
 
@@ -108,5 +109,15 @@ class Student extends \yii\db\ActiveRecord
     {
         $student = $this->find()->where(['id'=>$id])->one();
         return $student->id_group;
+    }
+
+    public function getBudgetTitle()
+    {
+        if($this->budget !== null){
+            return $this->budget == 0 ? 'Бюджет' : 'Коммерция';
+        }else{
+            return 'Не задано';
+        }
+
     }
 }

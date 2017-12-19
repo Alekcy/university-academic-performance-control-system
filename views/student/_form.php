@@ -16,8 +16,12 @@ use yii\widgets\ActiveForm;
     <?php
     $groups = \app\models\Speciality::find()->all();
     $groups = \yii\helpers\ArrayHelper::map($groups,'id','name');
+    print_r($groups);
     ?>
+
     <?= $form->field($model, 'id_group')->dropDownList($groups)->label('Группа') ?>
+
+    <?= $form->field($model, 'budget')->dropDownList([0=>'Бюджет',1=>'Коммерция'])->label('Группа') ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

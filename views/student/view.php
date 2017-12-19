@@ -40,6 +40,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'group.name',
                 'label'=>'Группа'
             ],
+            [
+                'attribute'=>'budget',
+                'value'=>function ($model) {return $model->getBudgetTitle();}
+            ]
         ],
     ]) ?>
 
