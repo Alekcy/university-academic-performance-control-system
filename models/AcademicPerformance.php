@@ -46,7 +46,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_Teacher', 'id_Reporting_type', 'id_Mark', 'id_Subject', 'id_student', 'id_group', 'id_faculty', 'id_speciality', 'Hours_count', 'id_academic_year'], 'integer'],
+            [['session','id_Teacher', 'id_Reporting_type', 'id_Mark', 'id_Subject', 'id_student', 'id_group', 'id_faculty', 'id_speciality', 'Hours_count', 'id_academic_year'], 'integer'],
             [['Date','idGroup'], 'safe'],
             [['id_academic_year'], 'exist', 'skipOnError' => true, 'targetClass' => AcademicYear::className(), 'targetAttribute' => ['id_academic_year' => 'id']],
             [['id_Teacher'], 'exist', 'skipOnError' => true, 'targetClass' => Teacher::className(), 'targetAttribute' => ['id_Teacher' => 'id']],
@@ -79,6 +79,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
             'Date' => 'Date',
             'Hours_count' => 'Hours Count',
             'id_academic_year' => 'Id Academic Year',
+            'session' => 'Сессия'
         ];
     }
 
@@ -161,5 +162,10 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     public function getIdSpeciality()
     {
         return $this->speciality->id;
+    }
+
+    public function  getSessionTitle()
+    {
+        return ($this->session===0) ? 'Зимняя' : 'Летняя';
     }
 }

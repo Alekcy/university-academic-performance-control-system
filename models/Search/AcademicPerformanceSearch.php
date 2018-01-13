@@ -16,14 +16,14 @@ class AcademicPerformanceSearch extends AcademicPerformance
     public
         $budget,
         $idGroup,
-     $idSpeciality;
+        $idSpeciality;
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id','idSpeciality', 'id_Teacher', 'id_Reporting_type', 'idGroup','id_Mark', 'id_Subject', 'id_student', 'id_group', 'id_faculty', 'id_academic_year', 'id_speciality', 'Hours_count'], 'integer'],
+            [['id','idSpeciality', 'id_Teacher', 'id_Reporting_type', 'idGroup','id_Mark', 'id_Subject', 'id_student', 'id_group', 'id_faculty', 'id_academic_year', 'id_speciality', 'Hours_count','session'], 'integer'],
             [['Date','budget'], 'safe'],
         ];
     }
@@ -92,6 +92,7 @@ class AcademicPerformanceSearch extends AcademicPerformance
             'id_academic_year' => $this->id_academic_year,
             'Date' => $this->Date,
             'Hours_count' => $this->Hours_count,
+            'session'=>$this->session
         ]);
 
         $query->andFilterWhere(['like', 'student.budget', $this->budget]);

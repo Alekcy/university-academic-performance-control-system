@@ -61,6 +61,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'academicYear.name',
                 'label'=>'Год'
             ],
+            [
+                'attribute'=>'session',
+                'label'=>'Сессия',
+                'value' => function ($model) {return $model->getSessionTitle();}
+            ],
+
 
             'Date',
             'Hours_count',

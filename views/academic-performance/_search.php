@@ -25,6 +25,8 @@ use yii\widgets\ActiveForm;
 
     $specialities = \yii\helpers\ArrayHelper::map(\app\models\Speciality::find()->all(),'id','name');
 
+    $years = \yii\helpers\ArrayHelper::map(\app\models\AcademicYear::find()->all(),'id','name');
+
 ?>
 
 <div class="academic-performance-search">
@@ -41,7 +43,10 @@ use yii\widgets\ActiveForm;
 
                 <?= $form->field($model, 'id_Teacher')->dropDownList($teachers, ['prompt'=>'- Выберите -'])->label('Преподаватель') ?>
 
-                <?= $form->field($model, 'id_Reporting_type')->dropDownList($repTypes, ['prompt'=>'- Выберите -'])->label('Тип отчетности') ?>
+                <?= $form->field($model, 'id_academic_year')->dropDownList($years, ['prompt'=>'- Выберите -'])->label('Год') ?>
+
+                <?= $form->field($model, 'session')->dropDownList([0=>'Зимняя',1=>'Летняя'], ['prompt'=>'- Выберите -'])->label('Сессия') ?>
+
             </div>
             <div class="col-md-4">
                 <?= $form->field($model, 'id_Mark')->dropDownList($marks, ['prompt'=>'- Выберите -'])->label('Оценка') ?>
@@ -49,6 +54,8 @@ use yii\widgets\ActiveForm;
                 <?= $form->field($model, 'id_Subject')->dropDownList($subjects, ['prompt'=>'- Выберите -'])->label('Предмет') ?>
 
                 <?= $form->field($model, 'id_student')->dropDownList($students, ['prompt'=>'- Выберите -'])->label('Студенты') ?>
+
+                <?= $form->field($model, 'id_Reporting_type')->dropDownList($repTypes, ['prompt'=>'- Выберите -'])->label('Тип отчетности') ?>
 
             </div>
             <div class="col-md-4">

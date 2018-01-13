@@ -47,9 +47,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_academic_year')->dropDownList($years)->label('Год') ?>
 
-    <?= $form->field($model, 'Date')->textInput() ?>
+    <?= $form->field($model, 'session')->dropDownList([0=>'Зимняя',1=>'Летняя'])->label('Сессия') ?>
 
     <?= $form->field($model, 'Hours_count')->textInput() ?>
+
+    <?= $form->field($model, 'Date')->textInput() ?>
+
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
