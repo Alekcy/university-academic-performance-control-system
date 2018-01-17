@@ -79,7 +79,7 @@ class AcademicPerformance extends \yii\db\ActiveRecord
             'Date' => 'Date',
             'Hours_count' => 'Hours Count',
             'id_academic_year' => 'Id Academic Year',
-            'session' => 'Сессия'
+            'session' => 'Сессия',
         ];
     }
 
@@ -159,6 +159,11 @@ class AcademicPerformance extends \yii\db\ActiveRecord
         return $this->hasOne(Speciality::className(), ['id' => 'id_speciality']);
     }
 
+    public function getBudget()
+    {
+        return $this->hasOne(Student::className(), ['id' => 'id_student'])->budget;
+    }
+
     public function getIdSpeciality()
     {
         return $this->speciality->id;
@@ -168,4 +173,103 @@ class AcademicPerformance extends \yii\db\ActiveRecord
     {
         return ($this->session===0) ? 'Зимняя' : 'Летняя';
     }
+
+    private function getCountAllStudents ($i,$year,$session) {
+        return $this->
+        find()->
+        select('student.name')->
+        distinct()->
+        joinWith('group')->
+        joinWith('student')->
+        where([
+            'id_academic_year'=>$year,
+            'session'=>$session,
+            'course'=>$i])->
+        count();
+    }
+
+    private function getOnly($studentsList,$mark,$mark2)
+    {
+        $students = [];
+        foreach ($studentsList as $item) {
+            if(array_key_exists($item['id_student'],$students)){
+                array_push($students[$item['id_student']],$item['id_Mark']);
+            }else{
+                $students[$item['id_student']] = [$item['id_Mark']];
+            }
+        }
+        $count = 0;
+        foreach ($students as $item) {
+            $check = false;
+            foreach ($item as $it) {
+                if($mark2 == 0 && $mark !== 0){
+                    if ($it == $mark){
+                        $check = true;
+                    }else{
+                        $check = false;
+                        break;
+                    }
+                }else if($mark2 == 0 && $mark == 0){
+                    if ($it == 1 || $it == 2 || $it == 3){
+                        $check = true;
+                    }else{
+                        $check = false;
+                        break;
+                    }
+                }else {
+                    if ($it == $mark || $it == $mark2){
+                        $check = true;
+                    }else{
+                        $check = false;
+                        break;
+                    }
+                }
+            }
+            if($check == true) $count++;
+        }
+        return $count;
+    }
+    public function getStats ()
+    {
+        $year = $_POST['AcademicPerformance']['id_academic_year'];
+        $session = $_POST['AcademicPerformance']['session'];
+
+        $array = [];
+        for($i=1; $i<=4; $i++) {
+            $allStudents = $this->getCountAllStudents($i,$year,$session);
+
+            $st = $this->
+            find()->
+            joinWith('group')->
+            joinWith('mark')->
+            joinWith('student')->
+            where([
+                'id_academic_year'=>$year,
+                'session'=>$session,
+                'course'=>$i
+            ])->
+            asArray()->
+            all();
+
+            $fiveOnly = $this->getOnly($st,1,0);
+            $four = $this->getOnly($st,2,1);
+            $thirdOnly = $this->getOnly($st,3,0);
+            $smesh = $this->getOnly($st,0,0);
+
+
+            $performancePercent = $allStudents != 0 ? ($four * 100)/$allStudents : 0;
+
+            array_push($array,[
+                'course'=>$i,
+                'allStudents'=>$allStudents,
+                'fiveOnly'=>$fiveOnly,
+                'four'=>$four,
+                'thirdOnly'=>$thirdOnly,
+                'smesh'=>$smesh,
+                'performancePercent'=>$performancePercent
+            ]);
+        }
+        return $array;
+    }
+
 }

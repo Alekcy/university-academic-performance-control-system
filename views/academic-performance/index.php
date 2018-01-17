@@ -18,6 +18,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+    <p>
+        <?= Html::a('Статистика за сессию', ['session-stats'], ['class' => 'btn btn-info']) ?>
+    </p>
     <?=
      PrintThis::widget([
         'htmlOptions' => [

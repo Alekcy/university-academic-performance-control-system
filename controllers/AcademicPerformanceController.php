@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Groups;
+use app\models\Mark;
 use app\models\Speciality;
 use app\models\Student;
 use Codeception\Lib\Generator\Group;
@@ -140,6 +141,22 @@ class AcademicPerformanceController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    public function actionSessionStats ()
+    {
+        $model = new AcademicPerformance();
+        if ($model->load(Yii::$app->request->post())) {
+            $stats = $model->getStats();
+            return $this->render('sessionStats', [
+                'model' => $model,
+                'stats' =>$stats
+            ]);
+        } else {
+            return $this->render('sessionStats', [
+                'model' => $model,
+            ]);
         }
     }
 }
