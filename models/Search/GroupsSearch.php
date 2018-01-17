@@ -18,7 +18,7 @@ class GroupsSearch extends Groups
     public function rules()
     {
         return [
-            [['id', 'year', 'id_speciality', 'id_faculty'], 'integer'],
+            [['id', 'year', 'id_speciality', 'id_faculty','course'], 'integer'],
             [['name'], 'safe'],
         ];
     }
@@ -63,6 +63,7 @@ class GroupsSearch extends Groups
             'year' => $this->year,
             'id_speciality' => $this->id_speciality,
             'id_faculty' => $this->id_faculty,
+            'course'=>$this->course
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name]);

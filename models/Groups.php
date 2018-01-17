@@ -33,7 +33,7 @@ class Groups extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['year', 'id_speciality', 'id_faculty'], 'integer'],
+            [['year', 'id_speciality', 'id_faculty','course'], 'integer'],
             [['name'], 'string', 'max' => 20],
             [['id_faculty'], 'exist', 'skipOnError' => true, 'targetClass' => Faculty::className(), 'targetAttribute' => ['id_faculty' => 'id']],
             [['id_speciality'], 'exist', 'skipOnError' => true, 'targetClass' => Speciality::className(), 'targetAttribute' => ['id_speciality' => 'id']],
@@ -51,6 +51,7 @@ class Groups extends \yii\db\ActiveRecord
             'year' => 'Год',
             'id_speciality' => 'Id Speciality',
             'id_faculty' => 'Id Faculty',
+            'course'=>'Курс'
         ];
     }
 

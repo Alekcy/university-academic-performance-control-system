@@ -16,6 +16,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'year')->textInput() ?>
 
+    <?= $form->field($model, 'course')->textInput() ?>
+
     <?php
     $specs = \app\models\Speciality::find()->all();
     $specs = \yii\helpers\ArrayHelper::map($specs,'id','name');

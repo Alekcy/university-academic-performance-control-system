@@ -29,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'year',
+            'course',
             [
                 'attribute' => 'faculty.name',
                 'label' => 'Факультет'
